@@ -85,14 +85,40 @@ num_missing = num_rows - ebola.count()
 
 print(num_missing)
 
-#def allNullEbola(x):
-#    for i in x:
-#        
-#print("This is allNullEbola: ", '\n', allNullEbola(num_missing), '\n')
+def allNullEbola(x):
+    total = 0
+    for i in x:
+        total += i 
+    return total
+
+
+print("This is allNullEbola: ", '\n', allNullEbola(num_missing), '\n')
 
 
 
 
-print(ebola.isnull())
+print("this is ebola.isnull", '\n', ebola.isnull(), '\n')
 
-print(np.count_nonzero(ebola.isnull()))
+print("this is counting ebola.isnull", '\n', np.count_nonzero(ebola.isnull()), '\n')
+
+ebola_dropped_na = ebola.dropna()
+print("this is ebola.fillna", '\n', ebola.fillna(0), '\n')
+print("this is ebola_dropped_na", '\n', ebola_dropped_na, '\n')
+
+
+
+df7 = pd.DataFrame({"a": [1, 2, 3], "b": [4, 5, 6]})
+print(df7)
+
+def my_SQR(x):
+    return x * x;
+
+df8 = df7["a"].apply(my_SQR)
+print(df8)
+
+df9 = df7.apply(my_SQR)
+print(df9)
+
+ebola2 = ebola.fillna(3555)
+print(ebola2)
+
